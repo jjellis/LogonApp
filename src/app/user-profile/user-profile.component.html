@@ -1,0 +1,65 @@
+<div>
+        <form [formGroup="profileForm"] (ngSubmit)="onSubmit(userProfileForm.value)">
+            
+                
+          <div>
+            <label for="firstName">
+              First Name
+            </label>
+            <input id="firstName" type="text" formControlName="firstName" />
+          </div>
+      
+          <div>
+            <label for="lastName">
+              Last Name
+            </label>
+            <input id="lastName" type="text" formControlName="lastName" />
+          </div>
+      
+          <div>
+            <label for="birthday">
+              Birthday
+            </label>
+            <input id="birthday" type="text" formControlName="birthday" />
+          </div>
+      
+          <div>
+            <label for="address">
+              Address
+            </label>
+            <input id="address" type="text" formControlName="address" />
+          </div>
+          <div>
+                <label for="faveFood">
+                  Favorite Food
+                </label>
+                <input id="faveFood" type="text" formControlName="faveFood" />
+              </div>
+      
+              <div>
+                    <label for="faveMovie">
+                      Favorite Movie
+                    </label>
+                    <input id="faveMovie" type="text" formControlName="faveMovie" />
+                  </div>
+      
+                  <div>
+                        <label for="faveArtist">
+                          Favorite Artist
+                        </label>
+                        <input id="faveArtist" type="text" formControlName="faveArtist" />
+                      </div>
+      
+                      <div>
+                            <label for="hobbies">
+                              Hobbie
+                            </label>
+                            <input id="hobbies" type="text" formControlName="hobbies" />
+                          </div>
+                      
+
+
+    <button class="button" type="submit">Register</button>
+
+
+</form>
