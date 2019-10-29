@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { IUser } from "../interfaces/iuser";
+import { Iuser } from "../iuser";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, BehaviorSubject } from "rxjs";
 import { map } from "rxjs/operators";
@@ -8,17 +8,17 @@ import { map } from "rxjs/operators";
   providedIn: "root"
 })
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<IUser>;
-  public currentUser: Observable<IUser>;
+  private currentUserSubject: BehaviorSubject<Iuser>;
+  public currentUser: Observable<Iuser>;
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<IUser>(
+    this.currentUserSubject = new BehaviorSubject<Iuser>(
       JSON.parse(localStorage.getItem("currentUser"))
     );
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  public get currentUserValue(): IUser {
+  public get currentUserValue(): Iuser {
     return this.currentUserSubject.value;
   }
 
@@ -45,8 +45,8 @@ export class AuthService {
     this.currentUserSubject.next(null);
   }
 
-  register(user: any): Observable<IUser> {
-    return this.http.post<IUser>(
+  register(user: any): Observable<Iuser> {
+    return this.http.post<Iuser>(
       "https://localhost:44367/api/auth/register",
       user
     );

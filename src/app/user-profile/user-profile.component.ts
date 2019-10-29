@@ -3,6 +3,7 @@ import { UserProfileService } from '../user-profile.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -12,18 +13,22 @@ export class UserProfileComponent implements OnInit {
 //profile: object = {};
 profileForm: FormGroup;
 userProfileForm: FormGroup;
-  constructor(private UserProfileService: UserProfileService, private formBuilder: FormBuilder, private router: Router) { }
+  profile: any;
+  constructor(
+    private UserProfileService: UserProfileService, 
+    private formBuilder: FormBuilder,
+    private router: Router) { }
 
   ngOnInit() {
-    this.UserProfileForm = this.formBuilder.group({
-      firstName = "jello",
-      lastName = "ff",
-      bir= "05/20/1978",
-      address= "poat ave"
-      faveFood= "taco",
-      favemove= "lion king",
-      faveartist= "boo",
-      hobbies = "none"
+    this.profileForm = this.formBuilder.group({
+      firstName: "tim",
+      lastName: "crawford",
+      birthday: "05/20/1978",
+      address: "poat ave",
+      faveFood: "taco",
+      favemovie: "lion king",
+      faveartist: "boo",
+      hobbies: "none"
 
     })
   }
@@ -35,4 +40,5 @@ userProfileForm: FormGroup;
   this.UserProfileService.post(form).subscribe(console.log)
 
 
+}
 }

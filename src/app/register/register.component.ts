@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { IUser } from "../interfaces/iuser";
+import { Iuser } from "../iuser";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { AuthService } from "../services/auth.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ["./register.component.scss"]
 })
 export class RegisterComponent implements OnInit {
-  newUser: IUser;
+  newUser: Iuser;
   registerForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
