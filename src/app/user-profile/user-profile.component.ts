@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserProfileService } from '../user-profile.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from "../services/auth.service";
+
 
 
 @Component({
@@ -12,11 +14,11 @@ import { Router } from '@angular/router';
 export class UserProfileComponent implements OnInit {
 //profile: object = {};
 profileForm: FormGroup;
-userProfileForm: FormGroup;
   profile: any;
   constructor(
     private UserProfileService: UserProfileService, 
     private formBuilder: FormBuilder,
+    private authService: AuthService,
     private router: Router) { }
 
   ngOnInit() {
@@ -33,7 +35,8 @@ userProfileForm: FormGroup;
     })
   }
  post(form){
-   this.UserProfileService.post(this.profile).subscribe(data =>(this.profile = data))
+   this.UserProfileService.post(this.profileForm.value)
+   .subscribe(data =>(this.profile = data))
  }
 
  onSubmit(form) {
