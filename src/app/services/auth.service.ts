@@ -24,7 +24,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this.http
-      .post<any>("https://loacalhost:44367/api/auth/login",{
+      .post<any>("https://localhost:44367/api/auth/login",{
         email: email,
         password:password
       })
